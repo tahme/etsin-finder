@@ -32,8 +32,8 @@ def create_app():
     is_testing = bool(os.environ.get('TESTING', False))
     app = Flask(__name__, template_folder="./frontend/build")
     app.config.update(get_app_config(is_testing))
-    if not app.testing and not executing_travis():
-        _setup_app_logging(app)
+    #if not app.testing and not executing_travis():
+    #_setup_app_logging(app)
     if not executing_travis():
         app.config.update({'SAML_PATH': '/home/etsin-user'})
     app.mail = Mail(app)
